@@ -1,0 +1,35 @@
+Quake desk — publish a screen update
+
+Buyers do not use Arduino. They use SET, then ABOUT, on the 4.3 inch screen.
+
+The chip flashes a .bin (Arduino export). It does not flash an Intel .hex.
+This text file is only for you. The desk never reads it.
+You produce the .bin. It is not stored in this folder until you copy it here.
+
+1. In the sketch, next to the version:
+     #define SKY_VER "1.0"
+     #define SKY_GH_USER "stefi01"
+     #define SKY_GH_REPO "quake-weather-night-sky-4.3-inch-display"
+   Raise SKY_VER before you compile. ota/version.txt must be that same number.
+
+2. Tools stay as in settings to change.txt in this sketch folder:
+     ESP32S3 Dev Module, OPI PSRAM, Flash 16MB,
+     USB CDC On Boot Enabled.
+   Partition scheme: Default 4MB with spiffs (1.2MB APP/1.5MB SPIFFS).
+   That scheme has two app slots. INSTALL writes into the other slot.
+   Use the Type-C port that shows up as CH340.
+
+3. Sketch > Export compiled Binary.
+   Rename a copy to:
+     ota/quake_43.bin
+
+4. Put that same version number in ota/version.txt (one line, example 1.0).
+
+5. On GitHub, in repo quake-weather-night-sky-4.3-inch-display on branch main, the root has:
+     README.md
+     ota/version.txt
+     ota/quake_43.bin
+   The first USB flash of a build that can update must be from Arduino.
+   After that, buyers tap CHECK FOR UPDATES. If a newer one is waiting, they tap INSTALL.
+
+This desk has no card install.
