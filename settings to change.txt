@@ -1,0 +1,13 @@
+Board: ESP32S3 Dev Module
+PSRAM: OPI PSRAM
+Flash Size: 16MB
+USB CDC On Boot: Enabled
+
+Sketch: firmware\4.3 inch version\quake_desk\quake_desk.ino
+
+This board is the Freenove FNK0115B, 4.3 inch TN, 480x272.
+Use the Type-C port that shows up as CH340.
+Leave OPI PSRAM on.
+Bounce buffer stays 272 * 20.
+Touch .h and .cpp stay in this folder.
+Prefs name is quake, so Factory on this gadget does not clear sky weather or the plane tracker.
